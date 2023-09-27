@@ -20,19 +20,18 @@ class HomePage extends NyStatefulWidget {
 }
 
 class _HomePageState extends NyState<HomePage> {
-
   @override
   init() async {
     super.init();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello World".tr()),
+        title: Text("Home".tr()),
         centerTitle: true,
+        elevation: 0, // remove the shadow
         actions: [
           IconButton(
             onPressed: widget.controller.showAbout,
@@ -81,9 +80,8 @@ class _HomePageState extends NyState<HomePage> {
                       child: ListView(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
-                        children: ListTile.divideTiles(
-                            context: context,
-                            tiles: [
+                        children:
+                            ListTile.divideTiles(context: context, tiles: [
                           MaterialButton(
                             child: Text(
                               "documentation".tr().capitalize(),
@@ -122,16 +120,16 @@ class _HomePageState extends NyState<HomePage> {
                       .bodyMedium(context)
                       .setColor(context, (color) => Colors.grey),
                   if (!context.isDarkMode)
-                  Switch(
-                      value: isThemeDark,
-                      onChanged: (_) {
-                        NyTheme.set(context,
-                            id: getEnv(isThemeDark != true
-                                ? 'DARK_THEME_ID'
-                                : 'LIGHT_THEME_ID'));
-                      }),
+                    Switch(
+                        value: isThemeDark,
+                        onChanged: (_) {
+                          NyTheme.set(context,
+                              id: getEnv(isThemeDark != true
+                                  ? 'DARK_THEME_ID'
+                                  : 'LIGHT_THEME_ID'));
+                        }),
                   if (!context.isDarkMode)
-                  Text("${isThemeDark ? "Dark" : "Light"} Mode"),
+                    Text("${isThemeDark ? "Dark" : "Light"} Mode"),
                 ],
               ),
             ],
@@ -141,5 +139,7 @@ class _HomePageState extends NyState<HomePage> {
     );
   }
 
-  bool get isThemeDark => ThemeProvider.controllerOf(context).currentThemeId == getEnv('DARK_THEME_ID');
+  bool get isThemeDark =>
+      ThemeProvider.controllerOf(context).currentThemeId ==
+      getEnv('DARK_THEME_ID');
 }

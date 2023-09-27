@@ -28,7 +28,7 @@ const TextTheme defaultTextTheme = TextTheme(
   ),
   displayLarge: TextStyle(
     fontSize: 36.0,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w800,
   ),
   titleSmall: TextStyle(
     fontSize: 14.0,

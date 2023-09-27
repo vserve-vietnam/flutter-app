@@ -1,0 +1,6 @@
+{
+    "documentation": "tài liệu",
+    "changelog": "nhật ký thay đổi",
+    "micro-framework for Flutter": "micro-framework cho Flutter",
+    "hello": "xin chào {{name}}"
+  }
