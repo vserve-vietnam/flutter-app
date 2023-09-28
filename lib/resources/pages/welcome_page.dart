@@ -84,7 +84,7 @@ class _WelcomePageState extends NyState<WelcomePage> {
                       padding: const EdgeInsets.symmetric(vertical: 14.0),
                       child: Text('Create your tennis identity',
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 15,
                               color: Colors.black,
                               fontWeight: FontWeight.bold)),
                     ),
@@ -99,12 +99,20 @@ class _WelcomePageState extends NyState<WelcomePage> {
                   SizedBox(height: 10),
                   OutlinedButton(
                     onPressed: () {},
-                    child: Text('Login',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 14.0),
+                      child: Text('Login',
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    ),
                     style: OutlinedButton.styleFrom(
                       primary: Colors.transparent,
                       shadowColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       side: BorderSide(color: Colors.transparent),
                     ),
                   ),
