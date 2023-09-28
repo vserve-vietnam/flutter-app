@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /*
 |--------------------------------------------------------------------------
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 |--------------------------------------------------------------------------
 */
 
-const TextTheme defaultTextTheme = TextTheme(
+final TextTheme defaultTextTheme = TextTheme(
   titleLarge: TextStyle(
     fontSize: 20.0,
     fontWeight: FontWeight.w600,
@@ -26,9 +27,9 @@ const TextTheme defaultTextTheme = TextTheme(
     fontSize: 28.0,
     fontWeight: FontWeight.w600,
   ),
-  displayLarge: TextStyle(
-    fontSize: 36.0,
-    fontWeight: FontWeight.w800,
+  displayLarge: GoogleFonts.geologica(
+    fontSize: 32.0,
+    fontWeight: FontWeight.w600,
   ),
   titleSmall: TextStyle(
     fontSize: 14.0,

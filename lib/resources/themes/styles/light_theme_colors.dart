@@ -12,7 +12,7 @@ class LightThemeColors implements ColorStyles {
   Color get background => const Color(0xFFF3F3F3);
 
   Color get primaryContent => const Color(0xFF000000);
-  Color get primaryAccent => const Color(0xFF0045a0);
+  Color get primaryAccent => const Color(0xFFE57461);
 
   Color get surfaceBackground => Colors.white;
   Color get surfaceContent => Colors.black;

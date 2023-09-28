@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bootstrap/extensions.dart';
 import 'package:flutter_app/resources/widgets/logo_widget.dart';
-import '/app/controllers/home_controller.dart';
+import '../../app/controllers/feed_controller.dart';
 import '/bootstrap/helpers.dart';
 import '/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:nylo_framework/theme/helper/ny_theme.dart';
 
-class HomePage extends NyStatefulWidget {
+class FeedPage extends NyStatefulWidget {
   @override
-  final HomeController controller = HomeController();
+  final FeedController controller = FeedController();
 
-  static const path = '/home-page';
+  static const path = '/feed-page';
 
-  HomePage({Key? key}) : super(key: key);
+  FeedPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _FeedPageState createState() => _FeedPageState();
 }
 
-class _HomePageState extends NyState<HomePage> {
+class _FeedPageState extends NyState<FeedPage> {
   @override
   init() async {
     super.init();

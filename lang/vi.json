@@ -2,5 +2,8 @@
     "documentation": "tài liệu",
     "changelog": "nhật ký thay đổi",
     "micro-framework for Flutter": "micro-framework cho Flutter",
-    "hello": "xin chào {{name}}"
+    "hello": "xin chào {{name}}",
+    "signup": "Set-up your Tennis iD",
+    "email": "Your email address",
+    "login": "Login to your account"
   }

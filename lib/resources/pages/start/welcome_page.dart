@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/resources/pages/auth/signup_page.dart';
+import 'package:flutter_app/resources/pages/auth/login_page.dart';
+import 'package:flutter_app/resources/widgets/buttons/action_button.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '/app/controllers/controller.dart';
 import '/resources/themes/text_theme/default_text_theme.dart';
-import '/resources/pages/home_page.dart';
 
 class WelcomePage extends NyStatefulWidget {
   final Controller controller = Controller();
@@ -62,7 +64,7 @@ class _WelcomePageState extends NyState<WelcomePage> {
                             color: Colors.white,
                             height: 1.1,
                             fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5) ??
+                            letterSpacing: 1) ??
                         DefaultTextStyle.of(context).style,
                   ),
                   SizedBox(height: 10),
@@ -75,46 +77,24 @@ class _WelcomePageState extends NyState<WelcomePage> {
                     style: TextStyle(fontSize: 20, color: Color(0xFFECE8E3)),
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton(
+                  ActionButton(
                     onPressed: () {
-                      routeTo(HomePage.path,
+                      routeTo(SignupPage.path,
                           pageTransition: PageTransitionType.fade);
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 14.0),
-                      child: Text('Create your tennis identity',
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFECE8E3),
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                    text: 'Create your Tennis iD',
+                    buttonColor: Color(0xFFECE8E3),
+                    textColor: Colors.black,
                   ),
                   SizedBox(height: 10),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 14.0),
-                      child: Text('Login',
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    style: OutlinedButton.styleFrom(
-                      primary: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      side: BorderSide(color: Colors.transparent),
-                    ),
+                  ActionButton(
+                    onPressed: () {
+                      routeTo(LoginPage.path,
+                          pageTransition: PageTransitionType.fade);
+                    },
+                    text: 'Login',
+                    buttonColor: Colors.transparent,
+                    textColor: Colors.white,
                   ),
                   SizedBox(height: 20),
                 ],
