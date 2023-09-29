@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bootstrap/extensions.dart';
+import 'package:flutter_app/resources/widgets/custom_app_bar_widget.dart';
 import 'package:flutter_app/resources/widgets/logo_widget.dart';
 import '../../app/controllers/feed_controller.dart';
 import '/bootstrap/helpers.dart';
@@ -28,17 +29,7 @@ class _FeedPageState extends NyState<FeedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home".tr()),
-        centerTitle: true,
-        elevation: 0, // remove the shadow
-        actions: [
-          IconButton(
-            onPressed: widget.controller.showAbout,
-            icon: Icon(Icons.info_outline),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(),
       body: SafeAreaWidget(
         child: Center(
           child: Column(

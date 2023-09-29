@@ -16,14 +16,13 @@ import 'package:nylo_framework/nylo_framework.dart';
 */
 
 appRouter() => nyRoutes((router) {
+      // Start routes
       router.route(WelcomePage.path, (context) => WelcomePage(),
           initialRoute: true);
 
+      // Auth routes
       router.route(SignupPage.path, (context) => SignupPage());
       router.route(LoginPage.path, (context) => LoginPage());
 
       router.route(FeedPage.path, (context) => FeedPage(), authPage: true);
-      // Add your routes here
-
-      // router.route(NewPage.path, (context) => NewPage(), transition: PageTransitionType.fade);
     });
