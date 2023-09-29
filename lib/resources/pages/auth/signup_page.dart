@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/resources/pages/feed_page.dart';
-import 'package:flutter_app/resources/pages/auth/login_page.dart';
-import 'package:flutter_app/resources/themes/text_theme/default_text_theme.dart';
-import 'package:flutter_app/resources/widgets/buttons/action_button.dart';
-import 'package:flutter_app/resources/widgets/utils/divider_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import '/app/controllers/controller.dart';
 
+// Pages
+import 'package:flutter_app/resources/pages/auth/login_page.dart';
+
+// Models
+import '/app/models/user.dart';
+
+// controllers
+import '/app/controllers/controller.dart';
+import '/app/controllers/auth_controller.dart';
+
+// Components / Reusable widgets
+import 'package:flutter_app/resources/themes/text_theme/default_text_theme.dart';
 import 'package:flutter_app/resources/widgets/inputs/password_field.dart';
 import 'package:flutter_app/resources/widgets/buttons/social_login_button.dart';
+import 'package:flutter_app/resources/widgets/buttons/action_button.dart';
+import 'package:flutter_app/resources/widgets/utils/divider_widget.dart';
 
 class SignupPage extends NyStatefulWidget {
   final Controller controller = Controller();
@@ -23,12 +31,22 @@ class SignupPage extends NyStatefulWidget {
 }
 
 class _SignupPageState extends NyState<SignupPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  late AuthController _authController;
+
   @override
   init() async {
     super.init();
+    _authController = AuthController(context);
   }
 
-  final _passwordController = TextEditingController();
+  void _signUp() async {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+    User? user = await _authController.signUp(email, password);
+    // Handle the result here
+  }
 
   @override
   void dispose() {
@@ -119,6 +137,7 @@ class _SignupPageState extends NyState<SignupPage> {
                     ),
                     SizedBox(height: 35),
                     CupertinoTextField(
+                      controller: _emailController,
                       style: TextStyle(color: Color(0xFF231F20), fontSize: 16),
                       placeholder: "Your email address",
                       placeholderStyle:
@@ -140,9 +159,7 @@ class _SignupPageState extends NyState<SignupPage> {
                       width: double.infinity,
                       child: ActionButton(
                         onPressed: () {
-                          routeTo(FeedPage.path,
-                              navigationType: NavigationType.pushAndForgetAll,
-                              pageTransition: PageTransitionType.fade);
+                          _signUp();
                         },
                         text: 'Register now',
                       ),
