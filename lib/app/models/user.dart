@@ -6,6 +6,7 @@ class User extends Model {
   String? name;
   String? email;
   String? token;
+  String? sessionId;
 
   User({required this.id, this.name, required this.email, required this.token});
 
@@ -14,7 +15,14 @@ class User extends Model {
     this.name = data['name'];
     this.email = data['email'];
     this.token = data['token'];
+    this.sessionId = data['session_id'];
   }
 
-  toJson() => {"id": id, "email": email, "token": token, "name": name};
+  toJson() => {
+        "id": id,
+        "email": email,
+        "token": token,
+        "name": name,
+        "session_id": sessionId
+      };
 }

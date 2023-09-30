@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/controllers/auth_controller.dart';
 import 'package:flutter_app/bootstrap/extensions.dart';
 import 'package:flutter_app/resources/pages/start/welcome_page.dart';
 import 'package:flutter_app/resources/widgets/custom_app_bar_widget.dart';
@@ -51,7 +52,7 @@ class _FeedPageState extends NyState<FeedPage> {
                   .titleMedium(context)
                   .setColor(context, (color) => color.primaryAccent),
               Text(
-                user?.token ?? "No token",
+                user?.sessionId ?? "No token",
               ).bodyMedium(context).alignCenter(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,10 +71,9 @@ class _FeedPageState extends NyState<FeedPage> {
                         .bodyLarge(context)
                         .setColor(context, (color) => color.surfaceContent),
                     onPressed: () async {
-                      await Auth.logout();
-                      await routeTo(WelcomePage.path,
-                          navigationType: NavigationType.pushReplace,
-                          pageTransition: PageTransitionType.fade);
+                      if (user != null) {
+                        AuthController(context).logOut(user!);
+                      }
                     },
                   ),
                 ],

@@ -1,3 +1,4 @@
+import 'package:flutter_app/resources/pages/start/welcome_page.dart';
 import 'package:flutter_app/resources/pages/feed_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'controller.dart';
@@ -45,5 +46,16 @@ class AuthController extends Controller {
       print('Login was unsuccessful');
     }
     return user;
+  }
+
+  Future<void> logOut(User user) async {
+    await Auth.logout();
+
+    // Make API call to backend to destroy session and remove notifcation token
+    await _authApiService.logOut(user);
+
+    routeTo(WelcomePage.path,
+        navigationType: NavigationType.pushReplace,
+        pageTransition: PageTransitionType.fade);
   }
 }

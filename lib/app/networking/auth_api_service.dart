@@ -9,18 +9,7 @@ class AuthApiService extends BaseApiService {
   AuthApiService({BuildContext? buildContext}) : super(buildContext);
 
   @override
-  String get baseUrl {
-    if (defaultTargetPlatform == TargetPlatform.iOS) {
-      // Check if it's a simulator or a real device
-      bool isPhysicalDevice =
-          !Platform.environment.containsKey('SIMULATOR_RUNTIME_VERSION');
-      if (isPhysicalDevice) {
-        // Replace '192.168.1.2' with your computer's local IP address
-        return 'https://safely-discrete-racer.ngrok-free.app';
-      }
-    }
-    return getEnv('API_BASE_URL');
-  }
+  String get baseUrl => getEnv('API_BASE_URL');
 
   Future<User?> signUp(String email, String password) async {
     return await network<User>(
@@ -38,5 +27,18 @@ class AuthApiService extends BaseApiService {
       request: (request) => request
           .post("/api/v1/auth", data: {"email": email, "password": password}),
     );
+  }
+
+  Future<User?> logOut(User user) async {
+    return await network<User>(
+        request: (request) => request.delete(
+              "/api/v1/auth",
+              options: Options(
+                headers: {
+                  HttpHeaders.authorizationHeader: 'Bearer ${user.token}',
+                },
+              ),
+              data: {"session_id": user.sessionId},
+            ));
   }
 }
