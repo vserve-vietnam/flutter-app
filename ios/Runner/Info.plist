@@ -15,7 +15,7 @@
 		<key>CFBundleLocalizations</key>
 		<array>
 			<string>en</string>
-			<string>es</string>
+			<string>vi</string>
 		</array>
 		<key>CFBundleName</key>
 		<string>Nylo</string>
@@ -47,8 +47,10 @@
 			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
-		<false/>
+		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>UIUserInterfaceStyle</key>
+		<string>Light</string>
 	</dict>
 </plist>

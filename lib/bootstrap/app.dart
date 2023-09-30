@@ -44,7 +44,8 @@ class AppBuild extends StatelessWidget {
     this.color,
     this.lightTheme,
     this.darkTheme,
-    this.themeMode = ThemeMode.system,
+    this.themeMode = ThemeMode
+        .light, // Always load with light theme until I have time to implement dark theme
     this.supportedLocales,
     this.debugShowMaterialGrid = false,
     this.showPerformanceOverlay = false,
