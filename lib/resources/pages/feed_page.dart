@@ -44,73 +44,20 @@ class _FeedPageState extends NyState<FeedPage> {
             children: <Widget>[
               Logo(),
               Text(
-                getEnv("APP_NAME"),
+                "Logged in",
               ).displayMedium(context),
+              SizedBox(height: 16),
               Text(user?.email ?? "No email", textAlign: TextAlign.center)
                   .titleMedium(context)
                   .setColor(context, (color) => color.primaryAccent),
               Text(
-                "Build something amazing 💡",
+                user?.token ?? "No token",
               ).bodyMedium(context).alignCenter(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Divider(),
-                  Container(
-                    height: 250,
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    decoration: BoxDecoration(
-                        color: ThemeColor.get(context).surfaceBackground,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 9,
-                            offset: Offset(0, 3),
-                          ),
-                        ]),
-                    child: Center(
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        children:
-                            ListTile.divideTiles(context: context, tiles: [
-                          MaterialButton(
-                            child: Text(
-                              "documentation".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                            onPressed: widget.controller.onTapDocumentation,
-                          ),
-                          MaterialButton(
-                            child: Text(
-                              "GitHub",
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                            onPressed: widget.controller.onTapGithub,
-                          ),
-                          MaterialButton(
-                            child: Text(
-                              "changelog".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                            onPressed: widget.controller.onTapChangeLog,
-                          ),
-                          MaterialButton(
-                            child: Text(
-                              "YouTube Channel".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                            onPressed: widget.controller.onTapYouTube,
-                          ),
-                        ]).toList(),
-                      ),
-                    ),
-                  ),
                   Text(
                     "Framework Version: $nyloVersion",
                   )
