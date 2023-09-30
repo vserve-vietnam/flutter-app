@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/app/controllers/auth_controller.dart';
 import 'package:flutter_app/resources/pages/auth/signup_page.dart';
 import 'package:flutter_app/resources/widgets/utils/divider_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -21,12 +22,21 @@ class LoginPage extends NyStatefulWidget {
 }
 
 class _LoginPageState extends NyState<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  late AuthController _authController;
+
   @override
   init() async {
     super.init();
+    _authController = AuthController(context);
   }
 
-  final _passwordController = TextEditingController();
+  void _logIn() async {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+    await _authController.logIn(email, password);
+  }
 
   @override
   void dispose() {
@@ -106,6 +116,7 @@ class _LoginPageState extends NyState<LoginPage> {
                     ),
                     SizedBox(height: 35),
                     CupertinoTextField(
+                      controller: _emailController,
                       style: TextStyle(color: Color(0xFF231F20), fontSize: 16),
                       placeholder: "Your email address",
                       placeholderStyle:
@@ -128,7 +139,7 @@ class _LoginPageState extends NyState<LoginPage> {
                       child: ActionButton(
                         onPressed: () {
                           // Add your action here
-                          print('Log in button pressed');
+                          _logIn();
                         },
                         text: 'Log In',
                       ),

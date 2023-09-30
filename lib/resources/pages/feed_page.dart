@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bootstrap/extensions.dart';
+import 'package:flutter_app/resources/pages/start/welcome_page.dart';
 import 'package:flutter_app/resources/widgets/custom_app_bar_widget.dart';
 import 'package:flutter_app/resources/widgets/logo_widget.dart';
 import '../../app/controllers/feed_controller.dart';
@@ -7,6 +8,7 @@ import '/bootstrap/helpers.dart';
 import '/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:nylo_framework/theme/helper/ny_theme.dart';
+import '../../app/models/user.dart';
 
 class FeedPage extends NyStatefulWidget {
   @override
@@ -21,9 +23,13 @@ class FeedPage extends NyStatefulWidget {
 }
 
 class _FeedPageState extends NyState<FeedPage> {
+  User? user;
+
   @override
   init() async {
     super.init();
+    user = Auth.user();
+    print(user?.email);
   }
 
   @override
@@ -40,7 +46,7 @@ class _FeedPageState extends NyState<FeedPage> {
               Text(
                 getEnv("APP_NAME"),
               ).displayMedium(context),
-              Text("Micro-framework for Flutter", textAlign: TextAlign.center)
+              Text(user?.email ?? "No email", textAlign: TextAlign.center)
                   .titleMedium(context)
                   .setColor(context, (color) => color.primaryAccent),
               Text(
@@ -110,17 +116,19 @@ class _FeedPageState extends NyState<FeedPage> {
                   )
                       .bodyMedium(context)
                       .setColor(context, (color) => Colors.grey),
-                  if (!context.isDarkMode)
-                    Switch(
-                        value: isThemeDark,
-                        onChanged: (_) {
-                          NyTheme.set(context,
-                              id: getEnv(isThemeDark != true
-                                  ? 'DARK_THEME_ID'
-                                  : 'LIGHT_THEME_ID'));
-                        }),
-                  if (!context.isDarkMode)
-                    Text("${isThemeDark ? "Dark" : "Light"} Mode"),
+                  MaterialButton(
+                    child: Text(
+                      "Logout",
+                    )
+                        .bodyLarge(context)
+                        .setColor(context, (color) => color.surfaceContent),
+                    onPressed: () async {
+                      await Auth.logout();
+                      await routeTo(WelcomePage.path,
+                          navigationType: NavigationType.pushReplace,
+                          pageTransition: PageTransitionType.fade);
+                    },
+                  ),
                 ],
               ),
             ],

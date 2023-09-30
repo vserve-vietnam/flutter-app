@@ -44,8 +44,7 @@ class _SignupPageState extends NyState<SignupPage> {
   void _signUp() async {
     String email = _emailController.text;
     String password = _passwordController.text;
-    User? user = await _authController.signUp(email, password);
-    // Handle the result here
+    await _authController.signUp(email, password);
   }
 
   @override

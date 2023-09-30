@@ -15,31 +15,38 @@ class BaseApiService extends NyBaseApiService {
   @override
   final interceptors = {
     if (getEnv('APP_DEBUG', defaultValue: false) == true)
-    PrettyDioLogger: PrettyDioLogger()
+      PrettyDioLogger: PrettyDioLogger()
   };
 
   /// Make a GET request
-  Future<T?> get<T>(String url, {Object? data,
+  Future<T?> get<T>(
+    String url, {
+    Object? data,
     Options? options,
     CancelToken? cancelToken,
-    ProgressCallback? onReceiveProgress,}) async {
+    ProgressCallback? onReceiveProgress,
+  }) async {
     if (T.toString() == 'dynamic') {
       return await network(
-        request: (request) =>
-            request.getUri(Uri.parse(url), data: data, options: options,
-                cancelToken: cancelToken,
-                onReceiveProgress: onReceiveProgress),
+        request: (request) => request.getUri(Uri.parse(url),
+            data: data,
+            options: options,
+            cancelToken: cancelToken,
+            onReceiveProgress: onReceiveProgress),
       );
     }
     return await network<T>(
-      request: (request) => request.getUri(Uri.parse(url), data: data, options: options,
+      request: (request) => request.getUri(Uri.parse(url),
+          data: data,
+          options: options,
           cancelToken: cancelToken,
           onReceiveProgress: onReceiveProgress),
     );
   }
 
   /// Make a POST request
-  Future<T?> post<T>(String url, {
+  Future<T?> post<T>(
+    String url, {
     Object? data,
     Options? options,
     CancelToken? cancelToken,
@@ -48,14 +55,18 @@ class BaseApiService extends NyBaseApiService {
   }) async {
     if (T.toString() == 'dynamic') {
       return await network(
-        request: (request) => request.postUri(Uri.parse(url), data: data, options: options,
+        request: (request) => request.postUri(Uri.parse(url),
+            data: data,
+            options: options,
             cancelToken: cancelToken,
             onSendProgress: onSendProgress,
             onReceiveProgress: onReceiveProgress),
       );
     }
     return await network<T>(
-      request: (request) => request.postUri(Uri.parse(url), data: data, options: options,
+      request: (request) => request.postUri(Uri.parse(url),
+          data: data,
+          options: options,
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
           onReceiveProgress: onReceiveProgress),
@@ -63,7 +74,8 @@ class BaseApiService extends NyBaseApiService {
   }
 
   /// Make a PUT request
-  Future<T?> put<T>(String url, {
+  Future<T?> put<T>(
+    String url, {
     Object? data,
     Options? options,
     CancelToken? cancelToken,
@@ -72,7 +84,9 @@ class BaseApiService extends NyBaseApiService {
   }) async {
     if (T.toString() == 'dynamic') {
       return await network(
-        request: (request) => request.postUri(Uri.parse(url), data: data, options: options,
+        request: (request) => request.postUri(Uri.parse(url),
+            data: data,
+            options: options,
             cancelToken: cancelToken,
             onSendProgress: onSendProgress,
             onReceiveProgress: onReceiveProgress),
@@ -80,38 +94,41 @@ class BaseApiService extends NyBaseApiService {
     }
     return await network<T>(
       request: (request) => request.putUri(Uri.parse(url),
-        data: data,
-        options: options,
-        cancelToken: cancelToken,
-        onSendProgress: onSendProgress,
-        onReceiveProgress: onReceiveProgress),
+          data: data,
+          options: options,
+          cancelToken: cancelToken,
+          onSendProgress: onSendProgress,
+          onReceiveProgress: onReceiveProgress),
     );
   }
 
   /// Make a DELETE request
-  Future<T?> delete<T>(String url,
-      Object? data,
-      Options? options,
+  Future<T?> delete<T>(String url, Object? data, Options? options,
       CancelToken? cancelToken) async {
     if (T.toString() == 'dynamic') {
       return await network(
-        request: (request) =>
-            request.deleteUri(Uri.parse(url), data: data,
-                options: options,
-                cancelToken: cancelToken),
+        request: (request) => request.deleteUri(Uri.parse(url),
+            data: data, options: options, cancelToken: cancelToken),
       );
     }
     return await network<T>(
-      request: (request) =>
-          request.deleteUri(Uri.parse(url), data: data,
-              options: options,
-              cancelToken: cancelToken),
+      request: (request) => request.deleteUri(Uri.parse(url),
+          data: data, options: options, cancelToken: cancelToken),
     );
   }
 
   @override
   displayError(DioException dioError, BuildContext context) {
     NyLogger.error(dioError.message ?? "");
-    showToastNotification(context, title: "Oops!", description: "Something went wrong", style: ToastNotificationStyleType.DANGER);
+    String errorMessage = "Something went wrong";
+    print(dioError.response?.data);
+    if (dioError.response?.data is Map<String, dynamic>) {
+      errorMessage =
+          dioError.response?.data['error'] ?? "No error message was provided";
+    }
+    showToastNotification(context,
+        title: "Something went wrong",
+        description: errorMessage,
+        style: ToastNotificationStyleType.DANGER);
   }
 }

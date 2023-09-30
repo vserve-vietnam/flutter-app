@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 class ToastNotification extends StatelessWidget {
-  const ToastNotification(ToastMeta toastMeta, {Function? onDismiss, Key? key}) : _toastMeta = toastMeta, _dismiss = onDismiss, super(key: key);
+  const ToastNotification(ToastMeta toastMeta, {Function? onDismiss, Key? key})
+      : _toastMeta = toastMeta,
+        _dismiss = onDismiss,
+        super(key: key);
 
   final Function? _dismiss;
   final ToastMeta _toastMeta;
@@ -31,18 +34,14 @@ class ToastNotification extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Pulse(
-                child: Container(
-                  child: Center(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: _toastMeta.icon ?? SizedBox.shrink(),
-                      padding: EdgeInsets.only(right: 16),
-                    ),
+              Container(
+                child: Center(
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: _toastMeta.icon ?? SizedBox.shrink(),
+                    padding: EdgeInsets.only(right: 16),
                   ),
                 ),
-                infinite: true,
-                duration: Duration(milliseconds: 1500),
               ),
               Expanded(
                 child: Column(
@@ -51,17 +50,17 @@ class ToastNotification extends StatelessWidget {
                   children: [
                     Text(
                       _toastMeta.title.tr(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(color: Colors.white),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
                     Text(
                       _toastMeta.description,
                       style: Theme.of(context)
                           .textTheme
-                          .bodyLarge!
-                          .copyWith(color: Colors.white),
+                          .bodyMedium!
+                          .copyWith(color: Colors.white, fontSize: 18),
                     ),
                   ],
                 ),
@@ -72,7 +71,7 @@ class ToastNotification extends StatelessWidget {
       ),
       Positioned(
         top: 0,
-        right: 0,
+        right: 6,
         child: IconButton(
             onPressed: () {
               if (_dismiss != null) {
@@ -87,4 +86,3 @@ class ToastNotification extends StatelessWidget {
     ]);
   }
 }
-

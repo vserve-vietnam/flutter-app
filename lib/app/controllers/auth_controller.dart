@@ -1,3 +1,5 @@
+import 'package:flutter_app/resources/pages/feed_page.dart';
+import 'package:nylo_framework/nylo_framework.dart';
 import 'controller.dart';
 import 'package:flutter/widgets.dart';
 import '../models/user.dart';
@@ -12,29 +14,35 @@ class AuthController extends Controller {
   }
 
   Future<User?> signUp(String email, String password) async {
-    dynamic response = await _authApiService.signUp(email, password);
-    User? user = User.fromJson(response);
+    User? user = await _authApiService.signUp(email, password);
+    // User? user = User.fromJson(response);
     if (user != null) {
       // Handle successful sign up
-      print(user);
-      // You might want to update some state here or navigate to a new page
+      await Auth.login(user);
+
+      routeTo(FeedPage.path,
+          navigationType: NavigationType.pushReplace,
+          pageTransition: PageTransitionType.fade);
     } else {
       // Handle sign up error
       print('Signup was unsuccessful');
-      // You might want to show an error message here
     }
     return user;
   }
 
   Future<User?> logIn(String email, String password) async {
-    dynamic response = await _authApiService.logIn(email, password);
-    User? user = User.fromJson(response);
+    User? user = await _authApiService.logIn(email, password);
     if (user != null) {
       // Handle successful log in
+      await Auth.login(user);
       // You might want to update some state here or navigate to a new page
+      routeTo(FeedPage.path,
+          navigationType: NavigationType.pushReplace,
+          pageTransition: PageTransitionType.fade);
     } else {
       // Handle log in error
       // You might want to show an error message here
+      print('Login was unsuccessful');
     }
     return user;
   }
