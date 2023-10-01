@@ -19,11 +19,11 @@ final TextTheme defaultTextTheme = TextTheme(
     fontSize: 24.0,
     fontWeight: FontWeight.w600,
   ),
-  displaySmall: TextStyle(
+  displaySmall: GoogleFonts.geologica(
     fontSize: 26.0,
     fontWeight: FontWeight.w700,
   ),
-  displayMedium: TextStyle(
+  displayMedium: GoogleFonts.geologica(
     fontSize: 28.0,
     fontWeight: FontWeight.w600,
   ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '/bootstrap/app.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'bootstrap/boot.dart';
-import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

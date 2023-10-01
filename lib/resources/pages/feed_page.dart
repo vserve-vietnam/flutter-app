@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/auth_controller.dart';
 import 'package:flutter_app/bootstrap/extensions.dart';
-import 'package:flutter_app/resources/pages/start/welcome_page.dart';
+import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
+import 'package:flutter_app/resources/widgets/bottom_sheets/action_sheet_widget.dart';
 import 'package:flutter_app/resources/widgets/custom_app_bar_widget.dart';
 import 'package:flutter_app/resources/widgets/logo_widget.dart';
 import '../../app/controllers/feed_controller.dart';
-import '/bootstrap/helpers.dart';
 import '/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:nylo_framework/theme/helper/ny_theme.dart';
 import '../../app/models/user.dart';
+import 'package:flutter_app/resources/widgets/custom_bottom_nav.dart';
+import 'package:flutter/services.dart';
 
 class FeedPage extends NyStatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _FeedPageState extends NyState<FeedPage> {
   @override
   init() async {
     super.init();
-    user = Auth.user();
+    user = await Auth.user();
     print(user?.email);
   }
 
@@ -82,6 +83,36 @@ class _FeedPageState extends NyState<FeedPage> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        height: 112.0,
+        width: 112.0,
+        padding: const EdgeInsets.only(top: 34.0), // Lowering the button
+        child: FloatingActionButton(
+          onPressed: () {
+            HapticFeedback.heavyImpact();
+            showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return ActionSheet();
+              },
+            );
+          },
+          elevation: 0,
+          highlightElevation: 0, // Remove shadow when button is pressed
+          backgroundColor: Color(0xFFA5C94B),
+          child: Icon(BaselineIcons.icon_tennis,
+              size: 36), // Making the icon larger
+          shape: CircleBorder(
+              side: BorderSide(
+                  color: Colors.white,
+                  width:
+                      4.0)), // Ensuring the button is round and adding a 4 pt white border
+          // Making the button larger
+          mini: false,
+        ),
+      ),
+      bottomNavigationBar: CustomBottomNav(),
     );
   }
 

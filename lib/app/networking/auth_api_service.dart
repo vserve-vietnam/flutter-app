@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '/app/networking/dio/base_api_service.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -9,7 +8,7 @@ class AuthApiService extends BaseApiService {
   AuthApiService({BuildContext? buildContext}) : super(buildContext);
 
   @override
-  String get baseUrl => getEnv('API_BASE_URL');
+  String get baseUrl => 'https://safely-discrete-racer.ngrok-free.app';
 
   Future<User?> signUp(String email, String password) async {
     return await network<User>(
