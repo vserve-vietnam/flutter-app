@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/resources/pages/profile_page.dart';
 import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
@@ -44,35 +45,42 @@ class MenuSheet extends StatelessWidget {
             ),
           ),
           SizedBox(height: 6),
-          Card(
-            elevation: 0,
-            color: Color(0xFFE57461),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: ListTile(
-              leading: CircleAvatar(
-                radius: 22,
-                backgroundImage: AssetImage('public/assets/images/avatar.jpg'),
-              ), // Set image from public/assets/images/avatar.jpg
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    email,
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w600),
-                  ), // Placeholder for profile name
-                  Text(
-                    'VTiD: 447820321',
-                    style: TextStyle(
-                        color: const Color.fromARGB(150, 255, 255, 255),
-                        fontSize: 14),
-                  ), // Added vtid
-                ],
+          GestureDetector(
+            onTap: () {
+              routeTo(ProfilePage.path,
+                  pageTransition: PageTransitionType.bottomToTopPop);
+            },
+            child: Card(
+              elevation: 0,
+              color: Color(0xFFE57461),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6),
               ),
-              trailing: Icon(Icons.chevron_right,
-                  color: Colors.white), // Added right chevron
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 22,
+                  backgroundImage:
+                      AssetImage('public/assets/images/avatar.jpg'),
+                ), // Set image from public/assets/images/avatar.jpg
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      email,
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w600),
+                    ), // Placeholder for profile name
+                    Text(
+                      'VTiD: 447820321',
+                      style: TextStyle(
+                          color: const Color.fromARGB(150, 255, 255, 255),
+                          fontSize: 14),
+                    ), // Added vtid
+                  ],
+                ),
+                trailing: Icon(Icons.chevron_right,
+                    color: Colors.white), // Added right chevron
+              ),
             ),
           ),
           Padding(

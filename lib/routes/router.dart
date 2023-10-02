@@ -1,3 +1,4 @@
+import '/resources/pages/profile_page.dart';
 import '../resources/pages/auth/login_page.dart';
 import '../resources/pages/auth/signup_page.dart';
 import '../resources/pages/start/welcome_page.dart';
@@ -24,5 +25,7 @@ appRouter() => nyRoutes((router) {
       router.route(SignupPage.path, (context) => SignupPage());
       router.route(LoginPage.path, (context) => LoginPage());
 
+      // Authenticated routes
       router.route(FeedPage.path, (context) => FeedPage(), authPage: true);
+      router.route(ProfilePage.path, (context) => ProfilePage());
     });
