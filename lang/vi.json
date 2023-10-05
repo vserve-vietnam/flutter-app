@@ -5,5 +5,9 @@
     "hello": "xin chào {{name}}",
     "signup": "Set-up your Tennis iD",
     "email": "Your email address",
-    "login": "Login to your account"
+    "login": "Login to your account",
+    "welcome": {
+      "title": "Welcome to Baseline",
+      "subtitle": "Ứng dụng cộng đồng & xếp hạng quần vợt chính thức tại Việt Nam"
+    }
   }

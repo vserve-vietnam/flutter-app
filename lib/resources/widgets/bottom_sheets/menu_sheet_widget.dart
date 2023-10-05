@@ -24,7 +24,7 @@ class MenuSheet extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 2.0),
                   child: Image.asset(
-                    getImageAsset("baseline_logo.png"),
+                    getImageAsset("logo-new.png"),
                     height: 40,
                     width: 100,
                   ),
@@ -48,11 +48,11 @@ class MenuSheet extends StatelessWidget {
           GestureDetector(
             onTap: () {
               routeTo(ProfilePage.path,
-                  pageTransition: PageTransitionType.bottomToTopPop);
+                  pageTransition: PageTransitionType.bottomToTop);
             },
             child: Card(
               elevation: 0,
-              color: Color(0xFFE57461),
+              color: Colors.black,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6),
               ),
@@ -88,7 +88,7 @@ class MenuSheet extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(Icons.person),
                   title: Text('Find a coach'),
                   onTap: () => {},
@@ -100,37 +100,37 @@ class MenuSheet extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(Icons.group),
                   title: Text('Clubs & Communities'),
                   onTap: () => {},
                 ),
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(Icons.rule_rounded),
                   title: Text('Baseline ranking rules'),
                   onTap: () => {},
                 ),
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(BaselineIcons.icon_court, size: 14),
                   title: Text('Add tennis court'),
                   onTap: () => {},
                 ),
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(BaselineIcons.icon_tennis, size: 18),
                   title: Text('Shop for gear'),
                   onTap: () => {},
                 ),
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(BaselineIcons.icon_ranking, size: 14),
                   title: Text('Organise a tournament'),
                   onTap: () => {},
                 ),
                 ListTile(
-                  tileColor: Colors.grey[200],
+                  tileColor: Color(0xFFDCE1E2),
                   leading: Icon(Icons.newspaper),
                   title: Text('Tennis news'),
                   onTap: () => {},

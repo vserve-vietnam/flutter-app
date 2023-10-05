@@ -26,6 +26,6 @@ appRouter() => nyRoutes((router) {
       router.route(LoginPage.path, (context) => LoginPage());
 
       // Authenticated routes
-      router.route(FeedPage.path, (context) => FeedPage());
+      router.route(FeedPage.path, (context) => FeedPage(), authPage: true);
       router.route(ProfilePage.path, (context) => ProfilePage());
     });

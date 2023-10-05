@@ -60,11 +60,11 @@ class _LoginPageState extends NyState<LoginPage> {
             splashColor: Colors.black
                 .withOpacity(0.8), // Change this to your desired color
           ),
-          backgroundColor: Color(0xFFEBE0D2),
+          backgroundColor: Colors.transparent,
         ),
         body: Container(
           padding: EdgeInsets.only(top: 0, right: 16, bottom: 16, left: 16),
-          color: Color(0xFFEBE0D2), // Added background color
+          color: Color(0xFFDCE1E2), // Added background color
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween, // Add this line
             crossAxisAlignment: CrossAxisAlignment.stretch,

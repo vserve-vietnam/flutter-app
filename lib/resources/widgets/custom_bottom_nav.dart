@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/bootstrap/helpers.dart';
+import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:flutter_app/resources/widgets/bottom_sheets/menu_sheet_widget.dart';
 
@@ -54,25 +55,24 @@ class _CustomBottomNavState extends NyState<CustomBottomNav> {
       currentIndex: 0,
       enableFeedback: true,
       elevation: 1,
-      selectedIconTheme:
-          IconThemeData(color: ThemeColor.get(context).primaryAccent),
-      selectedItemColor: ThemeColor.get(context).primaryAccent,
+      selectedIconTheme: IconThemeData(color: Colors.black),
+      selectedItemColor: Colors.black,
       iconSize: 24,
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Padding(
-            padding: const EdgeInsets.only(top: 6.0),
+            padding: const EdgeInsets.only(top: 6.2),
             child: Icon(Icons.home_rounded),
           ),
-          label: 'Feed',
+          label: 'Trang chủ',
         ),
         BottomNavigationBarItem(
           icon: Padding(
             padding: const EdgeInsets.only(top: 6.0),
             child: Icon(Icons.format_list_numbered_rounded),
           ),
-          label: 'Ranking',
+          label: 'Xếp hạng',
         ),
         BottomNavigationBarItem(
           icon: Padding(
@@ -84,9 +84,9 @@ class _CustomBottomNavState extends NyState<CustomBottomNav> {
         BottomNavigationBarItem(
           icon: Padding(
             padding: const EdgeInsets.only(top: 6.0),
-            child: Icon(Icons.inbox),
+            child: Icon(Icons.explore_outlined),
           ),
-          label: 'Inbox',
+          label: 'Khám phá',
         ),
         BottomNavigationBarItem(
           icon: Padding(

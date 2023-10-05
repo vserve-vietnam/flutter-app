@@ -59,7 +59,7 @@ class _FeedPageState extends NyState<FeedPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Divider(),
+                  SizedBox(height: 20),
                   Text(
                     "Framework Version: $nyloVersion",
                   )
@@ -100,7 +100,7 @@ class _FeedPageState extends NyState<FeedPage> {
           },
           elevation: 0,
           highlightElevation: 0, // Remove shadow when button is pressed
-          backgroundColor: Color(0xFFA5C94B),
+          backgroundColor: Color(0xFF2BBF58),
           child: Icon(BaselineIcons.icon_tennis,
               size: 36), // Making the icon larger
           shape: CircleBorder(

@@ -33,7 +33,7 @@ class _WelcomePageState extends NyState<WelcomePage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: Color(0xFF174948),
+          color: Colors.black,
         ),
         child: Stack(
           children: [
@@ -42,11 +42,17 @@ class _WelcomePageState extends NyState<WelcomePage> {
               left: 0,
               right: 0,
               child: Container(
-                height: MediaQuery.of(context).size.height * 2 / 3,
+                height: MediaQuery.of(context).size.height * 1.95 / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("public/assets/images/intro_image.png"),
+                    image: AssetImage("public/assets/images/intro2.jpg"),
                     fit: BoxFit.cover,
+                  ),
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0xFF2BBF58),
+                      width: 5.0,
+                    ),
                   ),
                 ),
               ),
@@ -59,7 +65,7 @@ class _WelcomePageState extends NyState<WelcomePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Become part of the tennis community',
+                    'welcome.title'.tr(),
                     style: defaultTextTheme.displayLarge?.copyWith(
                             color: Colors.white,
                             height: 1.1,
@@ -69,11 +75,7 @@ class _WelcomePageState extends NyState<WelcomePage> {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'The official tennis ranking',
-                    style: TextStyle(fontSize: 20, color: Color(0xFFECE8E3)),
-                  ),
-                  Text(
-                    '& community app in vietnam',
+                    'welcome.subtitle'.tr(),
                     style: TextStyle(fontSize: 20, color: Color(0xFFECE8E3)),
                   ),
                   SizedBox(height: 20),
@@ -83,7 +85,7 @@ class _WelcomePageState extends NyState<WelcomePage> {
                           pageTransition: PageTransitionType.fade);
                     },
                     text: 'Create your Tennis iD',
-                    buttonColor: Color(0xFFECE8E3),
+                    buttonColor: Color(0xFFDCE1E2),
                     textColor: Colors.black,
                   ),
                   SizedBox(height: 10),

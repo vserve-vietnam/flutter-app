@@ -22,7 +22,7 @@ class ActionSheet extends StatelessWidget {
                   Text(
                     'Ready? Set? Match!',
                     style: defaultTextTheme.displaySmall?.copyWith(
-                        color: Color(0xFF174948),
+                        color: Colors.black,
                         height: 1,
                         fontSize: 24.0,
                         fontWeight: FontWeight.w500,
@@ -114,7 +114,7 @@ class ActionItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
-                backgroundColor: Color(0xFFA5C94B),
+                backgroundColor: Color(0xFF2BBF58),
                 radius: 30,
                 child: Center(
                   child: Icon(icon, size: 28, color: Colors.white),
@@ -126,7 +126,7 @@ class ActionItem extends StatelessWidget {
                   text,
                   textAlign: TextAlign.center,
                   style: defaultTextTheme.displaySmall?.copyWith(
-                      color: Color(0xFF174948),
+                      color: Colors.black,
                       height: 1.25,
                       fontSize: 18.0,
                       fontWeight: FontWeight.w500,
