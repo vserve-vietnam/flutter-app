@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/controllers/auth_controller.dart';
-import 'package:flutter_app/bootstrap/extensions.dart';
-import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
-import 'package:flutter_app/resources/widgets/bottom_sheets/action_sheet_widget.dart';
-import 'package:flutter_app/resources/widgets/custom_app_bar_widget.dart';
-import 'package:flutter_app/resources/widgets/logo_widget.dart';
+import 'package:baseline_players/app/controllers/auth_controller.dart';
+import 'package:baseline_players/bootstrap/extensions.dart';
+import 'package:baseline_players/resources/themes/icons/baseline_icons.dart';
+import 'package:baseline_players/resources/widgets/bottom_sheets/action_sheet_widget.dart';
+import 'package:baseline_players/resources/widgets/custom_app_bar_widget.dart';
+import 'package:baseline_players/resources/widgets/logo_widget.dart';
 import '../../app/controllers/feed_controller.dart';
 import '/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '../../app/models/user.dart';
-import 'package:flutter_app/resources/widgets/custom_bottom_nav.dart';
+import 'package:baseline_players/resources/widgets/custom_bottom_nav.dart';
 import 'package:flutter/services.dart';
 
 class FeedPage extends NyStatefulWidget {

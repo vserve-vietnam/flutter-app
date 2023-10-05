@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/resources/pages/auth/signup_page.dart';
-import 'package:flutter_app/resources/pages/auth/login_page.dart';
-import 'package:flutter_app/resources/widgets/buttons/action_button.dart';
+import 'package:baseline_players/resources/pages/auth/signup_page.dart';
+import 'package:baseline_players/resources/pages/auth/login_page.dart';
+import 'package:baseline_players/resources/widgets/buttons/action_button.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '/app/controllers/controller.dart';
 import '/resources/themes/text_theme/default_text_theme.dart';

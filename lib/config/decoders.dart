@@ -1,6 +1,6 @@
 import '/app/networking/auth_api_service.dart';
-import 'package:flutter_app/app/models/user.dart';
-import 'package:flutter_app/app/networking/dio/base_api_service.dart';
+import 'package:baseline_players/app/models/user.dart';
+import 'package:baseline_players/app/networking/dio/base_api_service.dart';
 import '/app/networking/api_service.dart';
 
 /*

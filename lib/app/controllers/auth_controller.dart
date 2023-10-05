@@ -1,5 +1,5 @@
-import 'package:flutter_app/resources/pages/start/welcome_page.dart';
-import 'package:flutter_app/resources/pages/feed_page.dart';
+import '/resources/pages/start/welcome_page.dart';
+import '/resources/pages/feed_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'controller.dart';
 import 'package:flutter/widgets.dart';

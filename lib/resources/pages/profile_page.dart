@@ -1,8 +1,5 @@
+import 'package:baseline_players/resources/widgets/custom_app_bar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
-import 'package:flutter_app/resources/widgets/bottom_sheets/action_sheet_widget.dart';
-import 'package:flutter_app/resources/widgets/custom_bottom_nav.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '/app/controllers/controller.dart';
 
@@ -31,60 +28,126 @@ class _ProfilePageState extends NyState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Profile")),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // First section: Profile picture with name, bio, location and badges
-              Container(
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage:
-                          NetworkImage('https://via.placeholder.com/150'),
-                    ),
-                    Text('Name'),
-                    Text('Bio'),
-                    Text('Location'),
-                    Row(
-                      children: [
-                        Icon(Icons.star),
-                        Icon(Icons.star),
-                        Icon(Icons.star),
-                      ],
-                    ),
-                  ],
-                ),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: Icon(Icons.edit, color: Colors.white),
+          ),
+          IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: Icon(Icons.settings, color: Colors.white),
+          )
+        ],
+      ),
+      body: DefaultTabController(
+        length: 3,
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(16),
+              height: MediaQuery.of(context).size.height / 5,
+              decoration: BoxDecoration(
+                color: Colors.black,
               ),
-              // Second section: Tabs: [Profile, Posts, Tournaments]
-              DefaultTabController(
-                length: 3,
-                child: Column(
-                  children: [
-                    TabBar(
-                      tabs: [
-                        Tab(text: 'Profile'),
-                        Tab(text: 'Posts'),
-                        Tab(text: 'Tournaments'),
-                      ],
-                    ),
-                    // Third section show tabs content
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          Container(child: Text('Profile Content')),
-                          Container(child: Text('Posts Content')),
-                          Container(child: Text('Tournaments Content')),
-                        ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 2.0,
                       ),
                     ),
-                  ],
-                ),
+                    child: CircleAvatar(
+                      radius: 42,
+                      backgroundImage:
+                          AssetImage('public/assets/images/avatar.jpg'),
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Duy Tóc Dài',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.location_pin,
+                            color: Colors.white70,
+                            size: 16,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            'DaLat, Lam Dong',
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'VTiD #8394032',
+                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            Container(
+              color: Colors.white,
+              child: TabBar(
+                tabs: [
+                  Tab(text: "Profile"),
+                  Tab(text: "Match history"),
+                  Tab(text: "Achievements"),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text('Tab 1 content'),
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text('Tab 1 content'),
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text('Tab 2 content'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

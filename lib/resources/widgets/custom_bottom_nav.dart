@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/bootstrap/helpers.dart';
-import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:flutter_app/resources/widgets/bottom_sheets/menu_sheet_widget.dart';
+import 'package:baseline_players/resources/widgets/bottom_sheets/menu_sheet_widget.dart';
 
 class CustomBottomNav extends StatefulWidget {
   CustomBottomNav({Key? key}) : super(key: key);

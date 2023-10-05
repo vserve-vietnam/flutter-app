@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
-import 'package:flutter_app/resources/themes/text_theme/default_text_theme.dart';
+import 'package:baseline_players/resources/themes/icons/baseline_icons.dart';
+import 'package:baseline_players/resources/themes/text_theme/default_text_theme.dart';
 
 class ActionSheet extends StatelessWidget {
   const ActionSheet({Key? key}) : super(key: key);

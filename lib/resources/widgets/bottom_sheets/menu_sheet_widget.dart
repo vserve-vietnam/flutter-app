@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/resources/pages/profile_page.dart';
-import 'package:flutter_app/resources/themes/icons/baseline_icons.dart';
+import 'package:baseline_players/resources/pages/profile_page.dart';
+import 'package:baseline_players/resources/themes/icons/baseline_icons.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 class MenuSheet extends StatelessWidget {
