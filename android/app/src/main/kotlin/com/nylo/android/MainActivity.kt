@@ -1,4 +1,4 @@
-package com.nylo.android
+package com.baseline.player
 
 import io.flutter.embedding.android.FlutterActivity
 
