@@ -84,9 +84,9 @@ class _CustomBottomNavState extends NyState<CustomBottomNav> {
         BottomNavigationBarItem(
           icon: Padding(
             padding: const EdgeInsets.only(top: 6.0),
-            child: Icon(Icons.emoji_events),
+            child: Icon(Icons.inbox),
           ),
-          label: 'Tournaments',
+          label: 'Inbox',
         ),
         BottomNavigationBarItem(
           icon: Padding(
